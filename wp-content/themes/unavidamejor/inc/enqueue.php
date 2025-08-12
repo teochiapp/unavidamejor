@@ -17,6 +17,13 @@ function unavidamejor_enqueue_assets(): void {
         [],
         '5.3.3'
     );
+    // Font Awesome CSS
+wp_enqueue_style(
+    'fontawesome-css',
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
+    [],
+    '6.4.0'
+);
     // Google Fonts: Domine + Lato (completas)
     wp_enqueue_style(
         'unavidamejor-fonts',

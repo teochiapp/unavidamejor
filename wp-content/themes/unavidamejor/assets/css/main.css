@@ -5,6 +5,11 @@
   --primary-color: #800020;
   --background-white: #f5f5f5;
   --background-black: #1c1c1c;
+  --footer-font-size: 16px;
+  --footer-social-icon-size: 20px;
+  --footer-underline-width: 80px;
+  --footer-underline-height: 2px;
+  --secondary-color: linear-gradient(to right, #b8860b 6%, #ffc300 50%, #b8860b 89%);
   --font-heading: "Domine", sans-serif;
   --font-body: "Lato", sans-serif;
 }
@@ -79,6 +84,12 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   will-change: transform;
   backface-visibility: hidden;
+
+}
+.main-button a{
+  text-decoration: none;
+   color: var(--background-white);
+  font-family: var(--font-heading);
 }
 
 /* Estilos base */
@@ -97,7 +108,7 @@ body {
   width: 260px;
   height: 100%;
   background: #fff;
-  box-shadow: -2px 0 10px rgba(0,0,0,0.2); /* sombra invertida */
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2); /* sombra invertida */
   transition: right 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -108,7 +119,6 @@ body {
 .mobile-menu.open {
   right: 0; /* Antes era left: 0 */
 }
-
 
 .mobile-menu-header {
   display: flex;
@@ -133,7 +143,6 @@ body {
     display: block;
   }
 }
-
 
 /* Hovers de Header */
 .header-container > nav > ul > li:hover {
@@ -210,7 +219,7 @@ section #hero {
   overflow: hidden;
 }
 
-.hero-container .hero-video {
+.hero-video {
   position: absolute;
   top: 0;
   left: 0;
@@ -219,20 +228,13 @@ section #hero {
   overflow: hidden;
 }
 
-.hero-container .hero-video iframe {
+.hero-video iframe {
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 120%; /* Ajustá según corte que quieras */
+  height: 120%;
   transform: translate(-50%, -50%);
-
-  /* Truco para evitar bordes negros y cubrir todo */
-  width: 177.78vh; /* relación 16:9 */
-  height: 100vh;
-
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
-  pointer-events: none;
 }
 
 .hero-overlay {
@@ -587,4 +589,224 @@ section #hero {
     --arrow-size: 40px;
     padding: 0 calc(var(--arrow-size) + 8px);
   }
+}
+/* Live Section */
+
+.live-container {
+  background: var(--background-black);
+  color: var(--background-white);
+}
+
+.col-text-live {
+  padding: 0 30px;
+}
+
+i.fab.fa-youtube {
+  font-size: 18px;
+}
+
+/* EN VIVO */
+
+.live-title {
+  font-family: "Domine", serif;
+  font-weight: 700;
+  font-size: clamp(1.75rem, 2.4vw + 1rem, 2.5rem);
+
+  background: linear-gradient(
+    to bottom,
+    #fafafa 0%,
+    #fafafa 60%,
+    var(--primary-color) 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.live-subtitle {
+  font-weight: 700;
+}
+
+.live-description {
+  font-size: clamp(1rem, 1.5vw + 0.5rem, 1.15rem);
+  line-height: 1.5;
+}
+
+.live-yt {
+  border-radius: 20px;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100%;
+  display: block;
+}
+/* Contact */
+
+.wpforms-submit-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#wpforms-85 button[type="submit"] {
+  background: var(--secondary-color) !important;
+  color: var(--background-white) !important;
+  font-family: var(--font-heading) !important;
+  border: none !important;
+  box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.4) !important;
+  padding: 10px 15px !important;
+  border-radius: 10px !important;
+  text-decoration: none !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  will-change: transform !important;
+  backface-visibility: hidden !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.contact-container-form {
+  text-align: center;
+  background: radial-gradient(
+    circle,
+    #800020 0%,
+    #800020 45%,
+    #000000 100%
+  ) !important;
+  padding: 30px;
+  color: var(--background-white);
+  border-radius: 15px;
+}
+
+.contact-container-form h2 {
+  font-family: var(--font-heading);
+  font-size: 40px;
+}
+
+#wpforms-85 input[type="text"],
+#wpforms-85 input[type="email"],
+#wpforms-85 input[type="tel"],
+#wpforms-85 input[type="url"],
+#wpforms-85 input[type="number"],
+#wpforms-85 select,
+#wpforms-85 textarea {
+  border-radius: 10px !important;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+#wpforms-85 .wpforms-submit {
+  border-radius: 10px !important;
+}
+.contact-container-all .ratio.ratio-16x9 iframe {
+  height: 503px !important;
+  min-height: 503px !important;
+  max-height: 503px !important;
+}
+
+@media (max-width: 1200px) {
+  .contact-container-all .ratio.ratio-16x9 iframe {
+    height: 561px !important;
+    min-height: 561px !important;
+    max-height: 561px !important;
+  }
+}
+
+@media (max-width: 990px) {
+  .contact-container-all {
+    max-width: none !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .contact-container-form {
+    border-radius: 0 !important;
+  }
+  .contact-container-map {
+    padding: 0 !important;
+    height: 377px !important;
+  }
+
+  .contact-container-all .ratio.ratio-16x9 iframe {
+    height: 400px !important;
+    min-height: 400px !important;
+    max-height: 400px !important;
+  }
+}
+
+/* Logo Footer */
+
+.logo-footer > a {
+  height: auto;
+}
+
+.logo-footer > a > img {
+  width: 170px;
+  object-fit: contain;
+  height: auto;
+  padding-bottom: 20px;
+}
+
+.footer-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+/* Alineación del logo del footer al tope, a la misma altura que los títulos */
+.site-footer .logo-footer {
+  display: flex;
+  align-items: flex-start; /* top */
+}
+
+.footer-logo-col{
+    font-size: var(--footer-font-size) !important;
+    font-family: var(--font-heading);
+}
+.site-footer .logo-footer > a {
+  display: inline-block;
+  line-height: 1; /* evita desajustes verticales */
+  vertical-align: top;
+}
+
+/* Unificar tamaño de fuente en items del footer */
+.site-footer .footer-nav li,
+.site-footer .footer-nav a,
+.site-footer .nav.flex-column li a,
+.site-footer .list-unstyled li,
+.site-footer .list-unstyled li a,
+.site-footer .small,
+.site-footer .small a {
+  font-size: var(--footer-font-size) !important;
+  line-height: 1.5;
+}
+
+/* Tamaño de íconos de redes en footer */
+.site-footer .list-unstyled i.fab,
+.site-footer .list-unstyled i.fas,
+.site-footer .list-unstyled i.fa {
+  font-size: var(--footer-social-icon-size);
+  line-height: 1;
+}
+
+.footer-title::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: var(--footer-underline-width);
+  height: var(--footer-underline-height);
+  background-color: var(--primary-color);
+  border-radius: 2px;
+}
+
+.site-footer {
+  padding: 60px 0;
+}
+
+.social-list li{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }

@@ -25,15 +25,15 @@
 
     <nav class="main-nav">
       <ul>
-        <li>QUIENES SOMOS</li>
-        <li>EVENTOS</li>
-        <li>EN VIVO</li>
-        <li>CONTACTO</li>
+        <li><a href="#about" class="nav-link" data-scroll>QUIENES SOMOS</a></li>
+        <li><a href="#events" class="nav-link" data-scroll>EVENTOS</a></li>
+        <li><a href="#live" class="nav-link" data-scroll>EN VIVO</a></li>
+        <li><a href="#contact" class="nav-link" data-scroll>CONTACTO</a></li>
       </ul>
     </nav>
 
     <div class="header-button">
-      <button class="main-button">CONTACTANOS!</button>
+      <button class="main-button" ><a href="#contact"  data-scroll >CONTACTANOS!</a></button>
     </div>
   </div>
 
@@ -45,14 +45,14 @@
     </div>
     <nav class="mobile-nav">
       <ul>
-        <li>QUIENES SOMOS</li>
-        <li>EVENTOS</li>
-        <li>EN VIVO</li>
-        <li>CONTACTO</li>
+        <li><a href="#about" data-scroll>QUIENES SOMOS</a></li>
+        <li><a href="#events" data-scroll>EVENTOS</a></li>
+        <li><a href="#live" data-scroll>EN VIVO</a></li>
+        <li><a href="#contact" data-scroll>CONTACTO</a></li>
       </ul>
     </nav>
     <div class="mobile-contact">
-      <button class="main-button">CONTACTANOS!</button>
+      <button class="main-button" ><a href="#contact"  data-scroll >CONTACTANOS!</a></button>
     </div>
   </aside>
 </header>

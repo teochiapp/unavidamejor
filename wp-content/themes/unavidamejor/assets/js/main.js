@@ -53,5 +53,27 @@ if (toggle && menu && closeBtn) {
   });
 }
 
-
+  // Smooth scroll para enlaces internos con data-scroll
+  const scrollLinks = document.querySelectorAll('a[data-scroll]');
+  const isFront = document.body.classList.contains('home') || document.body.classList.contains('front-page');
+  const goTo = (hash) => {
+    const el = document.querySelector(hash);
+    if (!el) return;
+    const y = el.getBoundingClientRect().top + window.pageYOffset - 80; // offset header
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  };
+  scrollLinks.forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href') || '';
+      if (!href.startsWith('#')) return;
+      e.preventDefault();
+      if (isFront) {
+        goTo(href);
+      } else {
+        // si no estamos en home, redirigir a home + hash
+        const home = document.querySelector('link[rel="home"]')?.getAttribute('href') || '/';
+        window.location.href = home.replace(/\/$/, '') + '/' + href.replace(/^#/, '');
+      }
+    });
+  });
 });
