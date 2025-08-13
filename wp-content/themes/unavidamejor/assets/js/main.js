@@ -38,18 +38,48 @@ document.addEventListener('DOMContentLoaded', () => {
   coverIframeToContainer();
   window.addEventListener('resize', coverIframeToContainer);
 
+  // Header sticky on scroll
+  const headerEl = document.querySelector('.site-header');
+  if (headerEl) {
+    const stickyToggle = () => {
+      const y = window.pageYOffset || document.documentElement.scrollTop;
+      if (y > 10) headerEl.classList.add('is-sticky');
+      else headerEl.classList.remove('is-sticky');
+    };
+    stickyToggle();
+    window.addEventListener('scroll', stickyToggle, { passive: true });
+  }
+
   // 📱 JS para toggle del menú mobile
   const toggle = document.querySelector(".menu-toggle");
   const menu = document.querySelector(".mobile-menu");
   const closeBtn = document.querySelector(".close-menu");
+  const backdrop = document.querySelector('.menu-backdrop');
 
 if (toggle && menu && closeBtn) {
-  toggle.addEventListener("click", () => {
-    menu.classList.add("open");
+  const openMenu = () => {
+    menu.classList.add('open');
+    backdrop && backdrop.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+  const closeMenu = () => {
+    menu.classList.remove('open');
+    backdrop && backdrop.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  toggle.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  backdrop && backdrop.addEventListener('click', closeMenu);
+
+  // Cerrar al hacer click en cualquier link del menú
+  menu.querySelectorAll('a').forEach((a) => {
+    a.addEventListener('click', closeMenu);
   });
 
-  closeBtn.addEventListener("click", () => {
-    menu.classList.remove("open");
+  // Accesibilidad: cerrar con tecla Escape
+  document.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Escape') closeMenu();
   });
 }
 
@@ -70,9 +100,9 @@ if (toggle && menu && closeBtn) {
       if (isFront) {
         goTo(href);
       } else {
-        // si no estamos en home, redirigir a home + hash
+        // si no estamos en home, redirigir a home + #hash
         const home = document.querySelector('link[rel="home"]')?.getAttribute('href') || '/';
-        window.location.href = home.replace(/\/$/, '') + '/' + href.replace(/^#/, '');
+        window.location.href = home.replace(/\/$/, '') + '/#' + href.replace(/^#/, '');
       }
     });
   });

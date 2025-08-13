@@ -1,4 +1,166 @@
 /* Reglas responsive complementarias (sobre Bootstrap + main.css) */
 
 
+@media (max-width: 1200px) {
+  .contact-container-all .ratio.ratio-16x9 iframe {
+    height: 561px !important;
+    min-height: 561px !important;
+    max-height: 561px !important;
+  }
 
+  .about-us-container-text {
+    padding: 30px;
+  }
+
+  .about-us-container {
+    gap: 0px;
+  }
+
+.about-us-img img {
+    max-width: 300px;
+}
+}
+
+@media (max-width: 990px) {
+  .contact-container-all {
+    max-width: none !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .contact-container-form {
+    border-radius: 0 !important;
+  }
+  .contact-container-map {
+    padding: 0 !important;
+    height: 377px !important;
+  }
+
+  .contact-container-all .ratio.ratio-16x9 iframe {
+    height: 400px !important;
+    min-height: 400px !important;
+    max-height: 400px !important;
+  }
+
+  
+.events-background-right, .events-background-left {
+    width: 90px;
+}
+
+.events-background-right {
+    right: 2vw;
+}
+.events-background-left {
+    left: 2vw;
+}
+}
+
+@media (max-width: 768px) {
+  .mas-eventos {
+    --arrow-size: 75px;
+    padding: 0 calc(var(--arrow-size) + 8px);
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .about-us {
+    height: 780px;
+  }
+}
+
+@media (max-width: 992px) {
+  .about-us-container-text {
+    width: clamp(80%, 90vw, 95%);
+  }
+}
+
+@media (max-width: 992px) and (min-width: 768px) {
+.header-container > nav > ul {
+    gap: 15px;
+}
+}
+
+@media (min-width: 1200px) and (max-width: 1566px) {
+  .about-us-container {
+    gap: 150px;
+  }
+
+  .about-us-container-text h2 {
+    font-size: calc(30px + (7.2 * ((100vw - 1200px) / 300)));
+  }
+  .about-us-container-text h2::after {
+    width: calc(310px + (100 * ((100vw - 1200px) / 300)));
+  }
+}
+
+@media (max-width: 600px) {
+  .about-us-img img {
+    min-width: 300px;
+  }
+
+  .about-us-container-text h2::after {
+    width: 70%;
+  }
+}
+
+@media (max-width: 575px) {
+  .about-us-container-text h2 span {
+    display: block; /* fuerza salto de línea */
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-nav,
+  .header-button {
+    display: none;
+  }
+  .menu-toggle {
+    display: block;
+  }
+
+  .schedule-container {
+    padding: 100px 40px;
+}
+
+.schedule-left-img {
+    width: 130px;
+}
+
+.schedule-right-img {
+    max-width: 85px;
+}
+
+div.mobile-menu-header > a {
+    max-width: 130px;
+    padding: 20px 0;
+}
+
+.site-branding img {
+  height: 70px;
+  padding: 5px 0;
+    margin-left: 10px;
+
+}       
+
+#live > div > div > .row {
+padding: 2rem !important;
+}
+
+.footer-logo-col {
+    padding: 30px 15px;
+}
+
+.col-redes-sociales {
+    padding: 30px 15px;
+}
+
+.copyrigth-col {
+    text-align: center !important;
+    gap: 10px;
+}
+
+.eventos-destacados .row {
+  padding: 30px;
+}
+}

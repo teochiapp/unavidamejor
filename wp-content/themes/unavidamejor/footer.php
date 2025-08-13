@@ -69,7 +69,7 @@
           </div>
 
           <!-- Col: Social -->
-          <div class="col-12 col-lg-3">
+          <div class="col-12 col-lg-3 col-redes-sociales">
             <h6 class="footer-title text-uppercase fw-bold mb-3 heading-font">Redes sociales</h6>
             <ul class="social-list list-unstyled small d-grid gap-2">
               <?php if ($footer_id && function_exists('get_field')): ?>
@@ -141,12 +141,12 @@
         </div>
 
         <hr class="border-secondary my-4" />
-        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center small">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center small copyright-col">
           <div>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?> — Todos los derechos reservados</div>
           <?php if (function_exists('get_field') && ($dev = get_field('footer_developed_by', 'option'))): ?>
             <div>Desarrollado por <a class="link-light text-decoration-none" href="<?php echo esc_url($dev['url'] ?? '#'); ?>" target="_blank" rel="noopener"><?php echo esc_html($dev['title'] ?? ''); ?></a></div>
           <?php else: ?>
-            <div>Desarrollado por <a class="link-light text-decoration-underline" href="https://sur-code.com">SurCode</a></div>
+            <div>Desarrollado por <a class="link-light text-decoration-underline" href="https://sur-code.com" target="_blank" rel="noopener">SurCode</a></div>
           <?php endif; ?>
         </div>
       </div>

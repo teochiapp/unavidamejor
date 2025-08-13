@@ -1,4 +1,4 @@
-<section class="eventos-destacados py-5 position-relative">
+<section class="eventos-destacados container py-5 position-relative">
   <div class="container">
 
     <!-- Imagen decorativa izquierda -->

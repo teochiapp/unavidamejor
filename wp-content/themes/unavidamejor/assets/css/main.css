@@ -9,7 +9,12 @@
   --footer-social-icon-size: 20px;
   --footer-underline-width: 80px;
   --footer-underline-height: 2px;
-  --secondary-color: linear-gradient(to right, #b8860b 6%, #ffc300 50%, #b8860b 89%);
+  --secondary-color: linear-gradient(
+    to right,
+    #b8860b 6%,
+    #ffc300 50%,
+    #b8860b 89%
+  );
   --font-heading: "Domine", sans-serif;
   --font-body: "Lato", sans-serif;
 }
@@ -39,6 +44,12 @@ body {
   background: var(--background-black);
   margin: 0;
   font-family: var(--font-heading);
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease,
+    transform 0.25s ease;
 }
 
 .site-branding {
@@ -47,7 +58,15 @@ body {
 .site-branding img {
   height: 90px;
   margin-top: 5px;
-  transition: transform 0.3s ease;
+  transition: height 0.25s ease, transform 0.3s ease;
+}
+
+.site-header.is-sticky {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.site-header.is-sticky .site-branding img {
+  height: 72px;
 }
 
 .header-container > nav > ul {
@@ -70,6 +89,17 @@ body {
   display: inline-block; /* necesario para el pseudo-elemento */
 }
 
+/* Links del menú desktop */
+.header-container > nav > ul > li > a {
+  color: var(--background-white);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+.header-container > nav > ul > li:hover > a,
+.header-container > nav > ul > li > a:focus-visible {
+  color: var(--primary-color);
+}
+
 .main-button {
   background: linear-gradient(to right, #800020, #4d0013);
   color: var(--background-white);
@@ -84,11 +114,10 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   will-change: transform;
   backface-visibility: hidden;
-
 }
-.main-button a{
+.main-button a {
   text-decoration: none;
-   color: var(--background-white);
+  color: var(--background-white);
   font-family: var(--font-heading);
 }
 
@@ -97,33 +126,43 @@ body {
   display: none;
   background: none;
   border: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
   cursor: pointer;
+  color: var(--background-white); /* icono blanco en mobile */
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus-visible {
+  color: var(--primary-color);
+  transform: scale(1.05);
 }
 
 .mobile-menu {
   position: fixed;
   top: 0;
-  right: -100%; /* Antes era left */
-  width: 260px;
+  right: -100%; /* oculto por defecto */
+  width: min(86vw, 320px);
   height: 100%;
-  background: #fff;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2); /* sombra invertida */
+  background: #121212; /* fondo oscuro */
+  color: #fff;
+  box-shadow: -2px 0 16px rgba(0, 0, 0, 0.45);
   transition: right 0.3s ease;
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  z-index: 999;
+  padding: 20px 18px;
+  z-index: 1001;
 }
 
 .mobile-menu.open {
-  right: 0; /* Antes era left: 0 */
+  right: 0;
 }
 
 .mobile-menu-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* centrar logo */
   align-items: center;
+  gap: 12px;
+  position: relative; /* para posicionar el botón de cerrar */
 }
 
 .close-menu {
@@ -131,17 +170,105 @@ body {
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
+  color: var(--background-white);
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .main-nav,
-  .header-button {
-    display: none;
-  }
-  .menu-toggle {
-    display: block;
-  }
+.close-menu:hover,
+.close-menu:focus-visible {
+  color: var(--primary-color);
+  transform: scale(1.05);
+}
+
+/* Navegación del sidebar */
+.mobile-nav ul {
+  list-style: none;
+  margin: 18px 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.mobile-nav a {
+  display: block;
+  padding: 12px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #f5f5f5;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  background: rgba(255, 255, 255, 0.04);
+  transition: background 0.25s ease, transform 0.2s ease, color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.mobile-nav a::before {
+  content: "";
+  position: absolute;
+  inset: 0 100% 0 0; /* empieza con ancho 0 */
+  background: var(--primary-color);
+  opacity: 0.15;
+  transition: inset 0.25s ease;
+}
+.mobile-nav a:hover,
+.mobile-nav a:focus-visible {
+  color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(4px);
+}
+.mobile-nav a:hover::before,
+.mobile-nav a:focus-visible::before {
+  inset: 0 0 0 0; /* llena el fondo con leve overlay primary */
+}
+.mobile-contact {
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+/* Redes en sidebar mobile */
+.mobile-social {
+  display: flex;
+  gap: 14px;
+  padding: 14px 2px 4px;
+  justify-content: center;
+}
+.mobile-social .mobile-social-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.25rem;
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.mobile-social .mobile-social-link:hover {
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-1px);
+  color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-color) inset;
+}
+
+/* Backdrop del menú */
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(1px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 1000;
+}
+.menu-backdrop.open {
+  opacity: 1;
+  pointer-events: all;
 }
 
 /* Hovers de Header */
@@ -215,7 +342,7 @@ section #hero {
 .hero-container {
   position: relative;
   width: 100%;
-  height: 45vh; /* altura desktop */
+  height: 50vh; /* altura desktop */
   overflow: hidden;
 }
 
@@ -231,10 +358,21 @@ section #hero {
 .hero-video iframe {
   position: absolute;
   top: 50%;
+  object-fit: cover;
   left: 50%;
-  width: 120%; /* Ajustá según corte que quieras */
-  height: 120%;
+  width: 100%; /* Ajustá según corte que quieras */
+  height: 100%;
   transform: translate(-50%, -50%);
+}
+
+/* Asegurar que el video mp4 cubra el contenedor como background */
+.hero-video video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .hero-overlay {
@@ -386,44 +524,6 @@ section #hero {
   background-color: var(--primary-color);
 }
 
-@media (max-width: 1200px) {
-  .about-us {
-    height: 780px;
-  }
-}
-@media (max-width: 992px) {
-  .about-us-container-text {
-    width: clamp(80%, 90vw, 95%);
-  }
-}
-@media (min-width: 1200px) and (max-width: 1566px) {
-  .about-us-container {
-    gap: 150px;
-  }
-
-  .about-us-container-text h2 {
-    font-size: calc(30px + (7.2 * ((100vw - 1200px) / 300)));
-  }
-  .about-us-container-text h2::after {
-    width: calc(310px + (100 * ((100vw - 1200px) / 300)));
-  }
-}
-
-@media (max-width: 600px) {
-  .about-us-img img {
-    min-width: 300px;
-  }
-
-  .about-us-container-text h2::after {
-    width: 70%;
-  }
-}
-
-@media (max-width: 575px) {
-  .about-us-container-text h2 span {
-    display: block; /* fuerza salto de línea */
-  }
-}
 /* Events*/
 .eventos-destacados {
   /* Ajustá estos valores para cambiar el gap */
@@ -434,6 +534,14 @@ section #hero {
   --bs-gutter-x: var(--events-gap-x);
   --bs-gutter-y: var(--events-gap-y);
   padding: 15px 60px;
+}
+
+/* Forzar 1 columna en <=768px */
+@media (max-width: 768px) {
+  .eventos-destacados .row > [class*="col-"] {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
 }
 
 .events-background-left {
@@ -584,12 +692,6 @@ section #hero {
   right: 0;
 }
 
-@media (max-width: 768px) {
-  .mas-eventos {
-    --arrow-size: 40px;
-    padding: 0 calc(var(--arrow-size) + 8px);
-  }
-}
 /* Live Section */
 
 .live-container {
@@ -610,7 +712,7 @@ i.fab.fa-youtube {
 .live-title {
   font-family: "Domine", serif;
   font-weight: 700;
-  font-size: clamp(1.75rem, 2.4vw + 1rem, 2.5rem);
+  font-size: clamp(2rem, 2.4vw + 1rem, 2.5rem);
 
   background: linear-gradient(
     to bottom,
@@ -698,41 +800,39 @@ i.fab.fa-youtube {
 #wpforms-85 .wpforms-submit {
   border-radius: 10px !important;
 }
+
 .contact-container-all .ratio.ratio-16x9 iframe {
   height: 503px !important;
   min-height: 503px !important;
   max-height: 503px !important;
 }
 
-@media (max-width: 1200px) {
-  .contact-container-all .ratio.ratio-16x9 iframe {
-    height: 561px !important;
-    min-height: 561px !important;
-    max-height: 561px !important;
-  }
+#contact .contact-rama-derecha {
+  position: absolute;
+  z-index: 999;
+  right: -39px;
+  bottom: -35px;
+  transform: scaleX(-1) scaleY(-1);
+  width: 300px;
 }
 
-@media (max-width: 990px) {
-  .contact-container-all {
-    max-width: none !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-  }
-  .contact-container-form {
-    border-radius: 0 !important;
-  }
-  .contact-container-map {
-    padding: 0 !important;
-    height: 377px !important;
-  }
+#contact .contact-rama-izquierda {
+  position: absolute;
+  z-index: 999;
+  left: -39px;
+  top: -35px;
+  width: 300px;
+}
+@media (max-width:1060px) {
 
-  .contact-container-all .ratio.ratio-16x9 iframe {
-    height: 400px !important;
-    min-height: 400px !important;
-    max-height: 400px !important;
+  #contact img{
+    display: none;
   }
 }
-
+#contact {
+  position: relative;
+  overflow: hidden;
+}
 /* Logo Footer */
 
 .logo-footer > a {
@@ -760,9 +860,9 @@ i.fab.fa-youtube {
   align-items: flex-start; /* top */
 }
 
-.footer-logo-col{
-    font-size: var(--footer-font-size) !important;
-    font-family: var(--font-heading);
+.footer-logo-col {
+  font-size: var(--footer-font-size) !important;
+  font-family: var(--font-heading);
 }
 .site-footer .logo-footer > a {
   display: inline-block;
@@ -805,8 +905,32 @@ i.fab.fa-youtube {
   padding: 60px 0;
 }
 
-.social-list li{
+.social-list li {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+/* Footer: ajustes de padding solo en mobile */
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 36px 0; /* reduce padding vertical del bloque footer */
+  }
+
+  .site-footer .footer-nav ul {
+    padding-left: 0; /* asegurar lista sin indentación */
+    margin: 0;
+    gap: 8px; /* un poco más compacto */
+  }
+
+  .site-footer .footer-nav a,
+  .site-footer .nav.flex-column a,
+  .site-footer .list-unstyled li a {
+    display: block;
+    padding: 6px 4px; /* padding más chico en mobile */
+  }
+
+  .site-footer .social-list {
+    gap: 8px;
+  }
 }
