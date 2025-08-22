@@ -469,7 +469,7 @@ section #hero {
 /* About-Us */
 
 .about-us {
-  height: 500px;
+  height: 100%;
   width: 100%;
   background: var(--background-black);
   font-family: var(--font-body);
@@ -932,5 +932,11 @@ i.fab.fa-youtube {
 
   .site-footer .social-list {
     gap: 8px;
+  }
+}
+
+@media (max-width: 390px) {
+  .eventos-destacados .row {
+    padding: 0 !important;
   }
 }

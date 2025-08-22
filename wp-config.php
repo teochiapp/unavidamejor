@@ -102,8 +102,8 @@ $current_base = $current_scheme . '://' . $current_host;
 $wp_base_path = '/unavidamejor';
 
 // Fijar dinámicamente HOME y SITEURL según el host actual
-define('WP_HOME',    $current_base . $wp_base_path);
-define('WP_SITEURL', $current_base . $wp_base_path);
+// define('WP_HOME',    $current_base . $wp_base_path);
+// define('WP_SITEURL', $current_base . $wp_base_path);
 
 // Forzar SSL en admin sólo si estamos en HTTPS
 define('FORCE_SSL_ADMIN', $current_scheme === 'https');

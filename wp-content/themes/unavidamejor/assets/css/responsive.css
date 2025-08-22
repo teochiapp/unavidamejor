@@ -64,7 +64,7 @@
 
 @media (max-width: 1200px) {
   .about-us {
-    height: 780px;
+    height: 100%;
   }
 }
 
