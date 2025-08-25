@@ -29,6 +29,7 @@
 html,
 body {
   height: 100%;
+  
 }
 body {
   margin: 0;
@@ -466,6 +467,8 @@ section #hero {
   z-index: 1;
 }
 
+
+
 /* About-Us */
 
 .about-us {
@@ -530,6 +533,68 @@ section #hero {
   --events-gap-x: 3rem;
   --events-gap-y: 3rem;
 }
+
+/* Estilos para el modal de eventos */
+/* Solo imagen y título son clickeables */
+.evento-img.evento-clickable,
+.evento-title.evento-clickable {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.evento-img.evento-clickable:hover,
+.evento-title.evento-clickable:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+/* Remover cursor pointer de otros elementos clickeables */
+.evento-fecha.evento-clickable,
+.evento-desc.evento-clickable,
+.evento-icono.evento-clickable {
+  cursor: default;
+  transition: none;
+}
+
+.evento-fecha.evento-clickable:hover,
+.evento-desc.evento-clickable:hover,
+.evento-icono.evento-clickable:hover {
+  transform: none;
+  opacity: 1;
+}
+
+/* Estados del modal */
+.custom-modal.show {
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Loading state */
+.modal-title:empty::before {
+  content: "Cargando...";
+  color: #999;
+  font-style: italic;
+}
+
+/* Mejorar accesibilidad del modal */
+.custom-modal:focus {
+  outline: none;
+}
+
+.custom-modal-content:focus-within {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
 .eventos-destacados .row {
   --bs-gutter-x: var(--events-gap-x);
   --bs-gutter-y: var(--events-gap-y);
@@ -577,7 +642,6 @@ section #hero {
   background: transparent;
   border-radius: 30px;
   overflow: hidden;
-  cursor: pointer;
   box-shadow: 0 4px 8px rgb(0 0 0 / 0.3) !important;
   transition: 0.3s ease-in-out;
 }
@@ -823,9 +887,8 @@ i.fab.fa-youtube {
   top: -35px;
   width: 300px;
 }
-@media (max-width:1060px) {
-
-  #contact img{
+@media (max-width: 1060px) {
+  #contact img {
     display: none;
   }
 }
@@ -933,6 +996,70 @@ i.fab.fa-youtube {
   .site-footer .social-list {
     gap: 8px;
   }
+}
+
+/* Estilos para el link de eventos del footer */
+.footer-events-link {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer-events-link:hover {
+  color: var(--primary-color) !important;
+  transform: translateX(4px);
+}
+
+.footer-events-link::after {
+  content: "🔍";
+  margin-left: 8px;
+  font-size: 0.9em;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.footer-events-link:hover::after {
+  opacity: 1;
+}
+
+.footer-events-link i {
+  transition: all 0.3s ease;
+}
+
+.footer-events-link:hover i {
+  opacity: 1 !important;
+  transform: scale(1.1);
+  color: var(--primary-color);
+}
+
+/* Estilos para la lista de eventos en el modal del footer */
+.events-list {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.events-list h6 {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-heading);
+}
+
+.events-list ul li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e9ecef;
+  font-size: 0.95rem;
+}
+
+.events-list ul li:last-child {
+  border-bottom: none;
+}
+
+.events-list ul li strong {
+  color: var(--background-black);
+  font-weight: 600;
 }
 
 @media (max-width: 390px) {

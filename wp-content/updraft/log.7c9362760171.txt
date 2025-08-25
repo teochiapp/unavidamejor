@@ -1,0 +1,167 @@
+0000.006 () Opened log file at time: Fri, 22 Aug 2025 21:32:03 +0000 on http://localhost/unavidamejor
+0000.007 () UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.25.7 WP: 6.8.2 PHP: 8.2.12 (apache2handler, Windows NT LAPTOP-0JKG0JJG 10.0 build 26100 (Windows 11) AMD64) MySQL: 10.4.32-MariaDB (max packet size=33554432) WPLANG: es_AR Server: Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 safe_mode: 0 max_execution_time: 900 memory_limit: 512M (used: 68.6M | 70M) multisite: N openssl: OpenSSL 3.0.11 19 Sep 2023 mcrypt: N LANG:  WP Proxy: disabled ZipArchive::addFile: N
+0000.007 () Free space on disk containing Updraft's temporary directory: 140044.8 MB
+0000.021 () Restore setup, now closing connection and starting restore over AJAX.
+0000.002 () Opened log file at time: Fri, 22 Aug 2025 21:32:04 +0000 on http://localhost/unavidamejor
+0000.003 () UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.25.7 WP: 6.8.2 PHP: 8.2.12 (apache2handler, Windows NT LAPTOP-0JKG0JJG 10.0 build 26100 (Windows 11) AMD64) MySQL: 10.4.32-MariaDB (max packet size=33554432) WPLANG: es_AR Server: Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 safe_mode: 0 max_execution_time: 900 memory_limit: 512M (used: 64M | 66M) multisite: N openssl: OpenSSL 3.0.11 19 Sep 2023 mcrypt: N LANG:  WP Proxy: disabled ZipArchive::addFile: N
+0000.003 () Free space on disk containing Updraft's temporary directory: 140042.4 MB
+0000.012 () Ensuring WP_Filesystem is setup for a restore
+0000.015 () WP_Filesystem is setup and ready for a restore
+0000.019 () Restore job started. Entities to restore: db. Restore options: {"updraft_restorer_replacesiteurl":"1","include_unspecified_tables":false,"tables_to_restore":["wp_options","wp_users","wp_usermeta","wp_actionscheduler_actions","wp_actionscheduler_claims","wp_actionscheduler_groups","wp_actionscheduler_logs","wp_commentmeta","wp_comments","wp_links","wp_postmeta","wp_posts","wp_term_relationships","wp_term_taxonomy","wp_termmeta","wp_terms","wp_wpfm_backup","wp_wpforms_logs","wp_wpforms_payment_meta","wp_wpforms_payments","wp_wpforms_tasks_meta"],"tables_to_skip":[],"updraft_encryptionphrase":"","updraft_restorer_wpcore_includewpconfig":false,"updraft_incremental_restore_point":-1}
+0000.025 () Will not delete any archives after unpacking them, because there was no cloud storage for this backup
+0000.028 () Entity: db
+0000.028 () restore_backup(backup_file=backup_2025-08-22-1755_Una_Vida_Mejor_8c22f9181f7a-db.gz, type=db, info=a:0:{}, last_one=1)
+0000.028 () Descomprimiendo el respaldo... (backup_2025-08-22-1755_Una_Vida_Mejor_8c22f9181f7a-db.gz, 0.3 Mb)
+0000.029 () PHP event: code E_WARNING: mkdir(): File exists (line 558, C:\xampp\htdocs\unavidamejor\wp-admin\includes\class-wp-filesystem-direct.php)
+0000.032 () Database successfully unpacked
+0000.033 () Restaurando la base de datos... (en sitios grandes podría tardar mucho tiempo - si obtiene errores de exceso de tiempo de ejecución de comandos (timeout), lo que puede pasar si tu proveedor de hosting (hosting) tiene configurado tu hosting con recursos limitados, entonces debe usar un método diferente como phpMyAdmin)
+0000.043 () Using direct MySQL access; value of use_mysqli is: 1
+0000.044 () SQL compatibility mode is: NO_AUTO_VALUE_ON_ZERO,NO_ZERO_IN_DATE,NO_ENGINE_SUBSTITUTION
+0000.092 () Max packet size: 32 MB
+0000.092 () Entering maintenance mode
+0000.092 () Activando el modo mantenimiento&#8230;
+0000.111 () Backup of: https://unavidamejor.com.ar
+0000.122 () Content URL: https://unavidamejor.com.ar/wp-content
+0000.122 () Uploads URL: https://unavidamejor.com.ar/wp-content/uploads
+0000.122 () Old table prefix: wp_
+0000.123 () Old ABSPATH: /var/www/html/
+0000.123 () UpdraftPlus plugin slug: updraftplus/updraftplus.php
+0000.123 () Site information: multisite=0
+0000.123 () Site information: sql_mode=ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+0000.124 () Skipped execution of SQL statement (unwanted or internally handled type=18): /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+0000.124 () New table prefix: o8_
+0000.126 () Processing table (InnoDB): wp_options - will restore as: o8_options
+0000.216 () Atomic restore: dropping original table (uvm_options)
+0000.221 () Atomic restore: renaming new table (o8_options) to final table name (uvm_options)
+0000.227 () Restoring prior UD configuration (table: uvm_options; keys: 102)
+0000.581 () Table prefix has changed: changing options table field(s) accordingly (options)
+0000.582 () Options table fields changed OK
+0000.600 () Search and replacing table: uvm_options: rows: 338
+0000.620 () Incomplete object detected in database: WpOrg\Requests\Utility\CaseInsensitiveDictionary; Search and replace will be skipped for these entries
+0000.625 () Incomplete object detected in database: stdClass; Search and replace will be skipped for these entries
+0000.628 () Processing table (InnoDB): wp_users - will restore as: o8_users
+0000.658 () Atomic restore: dropping original table (uvm_users)
+0000.663 () Atomic restore: renaming new table (o8_users) to final table name (uvm_users)
+0000.696 () Search and replacing table: uvm_users: rows: 2
+0000.699 () Processing table (InnoDB): wp_usermeta - will restore as: o8_usermeta
+0000.728 () Atomic restore: dropping original table (uvm_usermeta)
+0000.734 () Atomic restore: renaming new table (o8_usermeta) to final table name (uvm_usermeta)
+0000.741 () Table prefix has changed: changing usermeta table field(s) accordingly
+0000.744 () Usermeta table fields changed OK
+0000.749 () Search and replacing table: uvm_usermeta: rows: 65
+0000.751 () Processing table (InnoDB): wp_actionscheduler_actions - will restore as: o8_actionscheduler_actions
+0000.791 () Atomic restore: dropping original table (uvm_actionscheduler_actions)
+0000.796 () Atomic restore: renaming new table (o8_actionscheduler_actions) to final table name (uvm_actionscheduler_actions)
+0000.814 () Search and replacing table: uvm_actionscheduler_actions: rows: 33
+0000.815 () Incomplete object detected in database: ActionScheduler_SimpleSchedule; Search and replace will be skipped for these entries
+0000.815 () Incomplete object detected in database: ActionScheduler_IntervalSchedule; Search and replace will be skipped for these entries
+0000.816 () Incomplete object detected in database: ActionScheduler_NullSchedule; Search and replace will be skipped for these entries
+0000.817 () Processing table (InnoDB): wp_actionscheduler_claims - will restore as: o8_actionscheduler_claims
+0000.847 () Atomic restore: dropping original table (uvm_actionscheduler_claims)
+0000.852 () Atomic restore: renaming new table (o8_actionscheduler_claims) to final table name (uvm_actionscheduler_claims)
+0000.878 () Search and replacing table: uvm_actionscheduler_claims: rows: 0
+0000.878 () Processing table (InnoDB): wp_actionscheduler_groups - will restore as: o8_actionscheduler_groups
+0000.906 () Atomic restore: dropping original table (uvm_actionscheduler_groups)
+0000.911 () Atomic restore: renaming new table (o8_actionscheduler_groups) to final table name (uvm_actionscheduler_groups)
+0000.924 () Search and replacing table: uvm_actionscheduler_groups: rows: 3
+0000.925 () Processing table (InnoDB): wp_actionscheduler_logs - will restore as: o8_actionscheduler_logs
+0000.950 () Atomic restore: dropping original table (uvm_actionscheduler_logs)
+0000.954 () Atomic restore: renaming new table (o8_actionscheduler_logs) to final table name (uvm_actionscheduler_logs)
+0000.967 () Search and replacing table: uvm_actionscheduler_logs: rows: 85
+0000.968 () Processing table (InnoDB): wp_commentmeta - will restore as: o8_commentmeta
+0000.992 () Atomic restore: dropping original table (uvm_commentmeta)
+0000.997 () Atomic restore: renaming new table (o8_commentmeta) to final table name (uvm_commentmeta)
+0001.010 () Search and replacing table: uvm_commentmeta: rows: 0
+0001.010 () Processing table (InnoDB): wp_comments - will restore as: o8_comments
+0001.037 () Atomic restore: dropping original table (uvm_comments)
+0001.042 () Atomic restore: renaming new table (o8_comments) to final table name (uvm_comments)
+0001.053 () Search and replacing table: uvm_comments: rows: 1
+0001.053 () Processing table (InnoDB): wp_links - will restore as: o8_links
+0001.074 () Atomic restore: dropping original table (uvm_links)
+0001.079 () Atomic restore: renaming new table (o8_links) to final table name (uvm_links)
+0001.091 () Search and replacing table: uvm_links: rows: 0
+0001.091 () Processing table (InnoDB): wp_postmeta - will restore as: o8_postmeta
+0001.141 () Atomic restore: dropping original table (uvm_postmeta)
+0001.146 () Atomic restore: renaming new table (o8_postmeta) to final table name (uvm_postmeta)
+0001.158 () Search and replacing table: uvm_postmeta: rows: 87
+0001.161 () Processing table (InnoDB): wp_posts - will restore as: o8_posts
+0001.196 () Atomic restore: dropping original table (uvm_posts)
+0001.201 () Atomic restore: renaming new table (o8_posts) to final table name (uvm_posts)
+0001.210 () Skipping search/replace on GUID column in posts table
+0001.211 () Search and replacing table: uvm_posts: rows: 124
+0001.223 () Processing table (InnoDB): wp_term_relationships - will restore as: o8_term_relationships
+0001.246 () Atomic restore: dropping original table (uvm_term_relationships)
+0001.251 () Atomic restore: renaming new table (o8_term_relationships) to final table name (uvm_term_relationships)
+0001.257 () Skipping this table: data in this table (uvm_term_relationships) should not be search/replaced
+0001.257 () Processing table (InnoDB): wp_term_taxonomy - will restore as: o8_term_taxonomy
+0001.280 () Atomic restore: dropping original table (uvm_term_taxonomy)
+0001.285 () Atomic restore: renaming new table (o8_term_taxonomy) to final table name (uvm_term_taxonomy)
+0001.296 () Search and replacing table: uvm_term_taxonomy: rows: 1
+0001.296 () Processing table (InnoDB): wp_termmeta - will restore as: o8_termmeta
+0001.321 () Atomic restore: dropping original table (uvm_termmeta)
+0001.326 () Database queries processed: 50 in 1.28 seconds
+0001.327 () Atomic restore: renaming new table (o8_termmeta) to final table name (uvm_termmeta)
+0001.339 () Search and replacing table: uvm_termmeta: rows: 0
+0001.339 () Processing table (InnoDB): wp_terms - will restore as: o8_terms
+0001.359 () Atomic restore: dropping original table (uvm_terms)
+0001.364 () Atomic restore: renaming new table (o8_terms) to final table name (uvm_terms)
+0001.376 () Search and replacing table: uvm_terms: rows: 1
+0001.377 () Processing table (InnoDB): wp_wpfm_backup - will restore as: o8_wpfm_backup
+0001.385 () Atomic restore: dropping original table (uvm_wpfm_backup)
+0001.386 () Atomic restore: renaming new table (o8_wpfm_backup) to final table name (uvm_wpfm_backup)
+0001.398 () Search and replacing table: uvm_wpfm_backup: rows: 0
+0001.398 () Processing table (InnoDB): wp_wpforms_logs - will restore as: o8_wpforms_logs
+0001.411 () Atomic restore: dropping original table (uvm_wpforms_logs)
+0001.417 () Atomic restore: renaming new table (o8_wpforms_logs) to final table name (uvm_wpforms_logs)
+0001.428 () Search and replacing table: uvm_wpforms_logs: rows: 3
+0001.429 () Processing table (InnoDB): wp_wpforms_payment_meta - will restore as: o8_wpforms_payment_meta
+0001.454 () Atomic restore: dropping original table (uvm_wpforms_payment_meta)
+0001.458 () Atomic restore: renaming new table (o8_wpforms_payment_meta) to final table name (uvm_wpforms_payment_meta)
+0001.492 () Search and replacing table: uvm_wpforms_payment_meta: rows: 0
+0001.492 () Processing table (InnoDB): wp_wpforms_payments - will restore as: o8_wpforms_payments
+0001.535 () Atomic restore: dropping original table (uvm_wpforms_payments)
+0001.540 () Atomic restore: renaming new table (o8_wpforms_payments) to final table name (uvm_wpforms_payments)
+0001.554 () Search and replacing table: uvm_wpforms_payments: rows: 0
+0001.555 () Processing table (InnoDB): wp_wpforms_tasks_meta - will restore as: o8_wpforms_tasks_meta
+0001.565 () Skipped execution of SQL statement (unwanted or internally handled type=18): /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+0001.569 () Unlocking database and leaving maintenance mode
+0001.570 () Desactivando el modo de mantenimiento&#8230;
+0001.570 () Atomic restore: dropping original table (uvm_wpforms_tasks_meta)
+0001.575 () Atomic restore: renaming new table (o8_wpforms_tasks_meta) to final table name (uvm_wpforms_tasks_meta)
+0001.586 () Search and replacing table: uvm_wpforms_tasks_meta: rows: 5
+0001.587 () Finished: lines processed: 67 in 1.54 seconds
+0001.588 () Limpiando basura...
+0001.590 () Begin search and replace (updraftplus_restored_db)
+0001.590 () [Database-replace-site-url] Base de datos: busca y sustituye la URL del sitio
+0001.591 () Database search and replace: replace https://unavidamejor.com.ar in backup dump with http://localhost/unavidamejor
+0001.591 () Database search and replace: replace http://www.unavidamejor.com.ar in backup dump with http://localhost/unavidamejor
+0001.592 () Database search and replace: replace http://unavidamejor.com.ar in backup dump with http://localhost/unavidamejor
+0001.592 () Database search and replace: replace https://www.unavidamejor.com.ar in backup dump with http://localhost/unavidamejor
+0001.592 () Database search and replace: replace /var/www/html in backup dump with C:\xampp\htdocs\unavidamejor
+0001.593 () Search and replacing table: uvm_actionscheduler_actions: already done
+0001.593 () Search and replacing table: uvm_actionscheduler_claims: already done
+0001.593 () Search and replacing table: uvm_actionscheduler_groups: already done
+0001.593 () Search and replacing table: uvm_actionscheduler_logs: already done
+0001.593 () Search and replacing table: uvm_commentmeta: already done
+0001.593 () Search and replacing table: uvm_comments: already done
+0001.593 () Search and replacing table: uvm_links: already done
+0001.593 () Search and replacing table: uvm_options: already done
+0001.593 () Search and replacing table: uvm_postmeta: already done
+0001.593 () Search and replacing table: uvm_posts: already done
+0001.594 () Search and replacing table: uvm_term_relationships: already done
+0001.594 () Search and replacing table: uvm_term_taxonomy: already done
+0001.594 () Search and replacing table: uvm_termmeta: already done
+0001.594 () Search and replacing table: uvm_terms: already done
+0001.594 () Search and replacing table: uvm_usermeta: already done
+0001.594 () Search and replacing table: uvm_users: already done
+0001.594 () Search and replacing table: uvm_wpfm_backup: already done
+0001.594 () Search and replacing table: uvm_wpforms_logs: already done
+0001.594 () Search and replacing table: uvm_wpforms_payment_meta: already done
+0001.594 () Search and replacing table: uvm_wpforms_payments: already done
+0001.594 () Search and replacing table: uvm_wpforms_tasks_meta: already done
+0001.615 () Plugin path google-site-kit/google-site-kit.php not found: de-activating.
+0001.615 () Plugin path tuxedo-big-file-uploads/tuxedo_big_file_uploads.php not found: de-activating.
+0001.615 () Plugin path wp-file-manager/file_folder_manager.php not found: de-activating.
+0001.615 () Plugin path wps-hide-login/wps-hide-login.php not found: de-activating.
+0001.626 () Restore successful!
+0001.627 () Restore successful

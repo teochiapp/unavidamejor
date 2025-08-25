@@ -89,6 +89,21 @@ wp_enqueue_style(
         true
     );
 
+    // JS del modal de eventos
+    wp_enqueue_script(
+        'unavidamejor-event-modal',
+        $theme_base_url . '/assets/js/event-modal.js',
+        ['bootstrap-js', 'unavidamejor-main'],
+        UNAVIDAMEJOR_VERSION,
+        true
+    );
+    
+    // Localizar script con variables AJAX
+    wp_localize_script('unavidamejor-event-modal', 'unavidamejor_ajax', array(
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'nonce' => wp_create_nonce('unavidamejor_nonce')
+    ));
+
     // Hilo de comentarios en singular
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');

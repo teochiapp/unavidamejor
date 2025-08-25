@@ -95,7 +95,7 @@
 
 @media (max-width: 600px) {
   .about-us-img img {
-    min-width: 300px;
+    min-width: 275px;
   }
 
   .about-us-container-text h2::after {

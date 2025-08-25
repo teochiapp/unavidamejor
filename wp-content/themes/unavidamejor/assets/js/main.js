@@ -100,9 +100,9 @@ if (toggle && menu && closeBtn) {
       if (isFront) {
         goTo(href);
       } else {
-        // si no estamos en home, redirigir a home + #hash
+        // si no estamos en home, redirigir a home + hash
         const home = document.querySelector('link[rel="home"]')?.getAttribute('href') || '/';
-        window.location.href = home.replace(/\/$/, '') + '/#' + href.replace(/^#/, '');
+        window.location.href = home.replace(/\/$/, '') + '/' + href.replace(/^#/, '');
       }
     });
   });

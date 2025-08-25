@@ -39,7 +39,7 @@
             <nav class="footer-nav">
               <ul class="list-unstyled d-grid gap-2">
                 <li><a href="#about" class="link-light text-decoration-none" data-scroll>QUIENES SOMOS</a></li>
-                <li><a href="#events" class="link-light text-decoration-none" data-scroll>EVENTOS</a></li>
+                <li><a href="#events" class="link-light text-decoration-none footer-events-link" data-modal="events">EVENTOS <i class="fas fa-external-link-alt ms-1" style="font-size: 0.8em; opacity: 0.7;"></i></a></li>
                 <li><a href="#live" class="link-light text-decoration-none" data-scroll>EN VIVO</a></li>
                 <li><a href="#contact" class="link-light text-decoration-none" data-scroll>CONTACTO</a></li>
               </ul>
@@ -146,11 +146,16 @@
           <?php if (function_exists('get_field') && ($dev = get_field('footer_developed_by', 'option'))): ?>
             <div>Desarrollado por <a class="link-light text-decoration-none" href="<?php echo esc_url($dev['url'] ?? '#'); ?>" target="_blank" rel="noopener"><?php echo esc_html($dev['title'] ?? ''); ?></a></div>
           <?php else: ?>
-            <div>Desarrollado por <a class="link-light text-decoration-underline" href="https://sur-code.com" target="_blank" rel="noopener">SurCode</a></div>
+            <div>Desarrollado por <a class="link-light text-decoration-underline" target="_blank" href="https://surcodes.com">SurCodes</a></div>
           <?php endif; ?>
         </div>
       </div>
     </footer>
+
+    <?php 
+    // Incluir el modal de eventos para que esté disponible en todas las páginas
+    get_template_part('template-parts/home/event-modal'); 
+    ?>
 
     <?php wp_footer(); ?>
 </body>
