@@ -42,7 +42,7 @@
             
             <!-- Descripción -->
             <div class="evento-modal-descripcion">
-              <p id="modalEventoDescripcion"></p>
+              <div id="modalEventoDescripcion"></div>
             </div>
           </div>
         </div>
@@ -83,6 +83,7 @@
   padding: 20px;
   box-sizing: border-box;
   transform: none !important;
+  overflow-y: auto;
 }
 
 .custom-modal.show {
@@ -121,6 +122,8 @@
   animation: modalSlideIn 0.3s ease-out;
   position: relative;
   z-index: 10000;
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes modalSlideIn {
@@ -140,6 +143,7 @@
   padding: 1.5rem 1.5rem 0;
   position: relative;
   z-index: 10000;
+  flex-shrink: 0;
 }
 
 .custom-modal-close {
@@ -167,6 +171,9 @@
 
 .custom-modal-body {
   padding: 2rem 1.5rem;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
 }
 
 .modal-row {
@@ -241,6 +248,10 @@
   text-align: center;
 }
 
+.evento-modal-descripcion {
+  margin-top: 1.5rem;
+}
+
 .evento-modal-descripcion h6 {
   font-weight: 700;
   color: var(--background-black);
@@ -251,13 +262,90 @@
 .evento-modal-descripcion p {
   color: var(--background-black);
   line-height: 1.6;
-  margin: 0;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.evento-modal-descripcion p:last-child {
+  margin-bottom: 0;
+}
+
+.evento-modal-descripcion h1,
+.evento-modal-descripcion h2,
+.evento-modal-descripcion h3,
+.evento-modal-descripcion h4,
+.evento-modal-descripcion h5,
+.evento-modal-descripcion h6 {
+  color: var(--primary-color);
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.evento-modal-descripcion h1:first-child,
+.evento-modal-descripcion h2:first-child,
+.evento-modal-descripcion h3:first-child,
+.evento-modal-descripcion h4:first-child,
+.evento-modal-descripcion h5:first-child,
+.evento-modal-descripcion h6:first-child {
+  margin-top: 0;
+}
+
+.evento-modal-descripcion ul,
+.evento-modal-descripcion ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.evento-modal-descripcion li {
+  margin-bottom: 0.5rem;
+  color: var(--background-black);
+  line-height: 1.5;
+}
+
+.evento-modal-descripcion strong,
+.evento-modal-descripcion b {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.evento-modal-descripcion em,
+.evento-modal-descripcion i {
+  font-style: italic;
+}
+
+.evento-modal-descripcion a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.evento-modal-descripcion a:hover {
+  text-decoration: underline;
+}
+
+.evento-modal-descripcion blockquote {
+  border-left: 4px solid var(--primary-color);
+  padding-left: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.evento-modal-descripcion .lead {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--background-black);
+  margin-bottom: 1.5rem;
 }
 
 .custom-modal-footer {
   padding: 0 1.5rem 1.5rem;
   display: flex;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .whatsapp-btn {
@@ -292,6 +380,14 @@
 @media (max-width: 768px) {
   .custom-modal {
     padding: 10px;
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+  
+  .custom-modal-content {
+    max-height: calc(100vh - 40px);
+    margin: 0;
+    border-radius: 15px;
   }
   
   .modal-row {
@@ -304,15 +400,18 @@
   }
   
   .evento-modal-img-container {
-    height: 250px;
+    height: 200px;
   }
   
   .evento-modal-content h2 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
   }
   
   .custom-modal-body {
     padding: 1.5rem 1rem;
+    max-height: none;
+    overflow-y: visible;
   }
   
   .custom-modal-footer {
@@ -322,6 +421,137 @@
   .whatsapp-btn {
     width: 100%;
     justify-content: center;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+  }
+  
+  .fecha-item,
+  .ubicacion-item {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .evento-modal-descripcion {
+    margin-top: 1rem;
+  }
+
+  .evento-modal-descripcion p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+  }
+  
+  .evento-modal-descripcion h1,
+  .evento-modal-descripcion h2,
+  .evento-modal-descripcion h3,
+  .evento-modal-descripcion h4,
+  .evento-modal-descripcion h5,
+  .evento-modal-descripcion h6 {
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .evento-modal-descripcion ul,
+  .evento-modal-descripcion ol {
+    margin: 0.75rem 0;
+    padding-left: 1.25rem;
+  }
+  
+  .evento-modal-descripcion li {
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+  }
+  
+  .evento-modal-descripcion blockquote {
+    padding: 0.75rem;
+    margin: 0.75rem 0;
+    font-size: 0.9rem;
+  }
+  
+  .evento-modal-descripcion .lead {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-modal {
+    padding: 5px;
+    padding-top: 15px;
+  }
+  
+  .custom-modal-content {
+    max-height: calc(100vh - 30px);
+    border-radius: 12px;
+  }
+  
+  .custom-modal-header {
+    padding: 1rem 1rem 0;
+  }
+  
+  .custom-modal-body {
+    padding: 1rem 0.75rem;
+  }
+  
+  .custom-modal-footer {
+    padding: 0 0.75rem 1rem;
+  }
+  
+  .evento-modal-img-container {
+    height: 180px;
+  }
+  
+  .evento-modal-content h2 {
+    font-size: 1.3rem;
+  }
+  
+  .whatsapp-btn {
+    padding: 0.875rem 1.25rem;
+    font-size: 1rem;
+  }
+  
+  .evento-modal-descripcion {
+    margin-top: 0.75rem;
+  }
+
+  .evento-modal-descripcion p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+  }
+  
+  .evento-modal-descripcion h1,
+  .evento-modal-descripcion h2,
+  .evento-modal-descripcion h3,
+  .evento-modal-descripcion h4,
+  .evento-modal-descripcion h5,
+  .evento-modal-descripcion h6 {
+    font-size: 0.95rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .evento-modal-descripcion ul,
+  .evento-modal-descripcion ol {
+    margin: 0.5rem 0;
+    padding-left: 1rem;
+  }
+  
+  .evento-modal-descripcion li {
+    margin-bottom: 0.2rem;
+    font-size: 0.85rem;
+  }
+  
+  .evento-modal-descripcion blockquote {
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    font-size: 0.85rem;
+  }
+  
+  .evento-modal-descripcion .lead {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
   }
 }
 
@@ -383,5 +613,31 @@ body.modal-open {
 .modal-backdrop-blur.show {
   opacity: 1;
   visibility: visible;
+}
+
+/* Mejoras para scroll en móvil */
+@media (max-width: 768px) {
+  .custom-modal-body {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+  }
+  
+  .custom-modal-body::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .custom-modal-body::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .custom-modal-body::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 2px;
+  }
+  
+  .custom-modal-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.5);
+  }
 }
 </style>

@@ -25,6 +25,8 @@
 
     <nav class="main-nav">
       <ul>
+        <li><a href="#about" class="nav-link" data-scroll>VISIÓN</a></li>
+        <li><a href="#about" class="nav-link" data-scroll>EN QUE CREEMOS</a></li>
         <li><a href="#about" class="nav-link" data-scroll>QUIENES SOMOS</a></li>
         <li><a href="#events" class="nav-link" data-scroll>EVENTOS</a></li>
         <li><a href="#live" class="nav-link" data-scroll>EN VIVO</a></li>

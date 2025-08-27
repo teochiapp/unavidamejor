@@ -39,7 +39,7 @@
             <nav class="footer-nav">
               <ul class="list-unstyled d-grid gap-2">
                 <li><a href="#about" class="link-light text-decoration-none" data-scroll>QUIENES SOMOS</a></li>
-                <li><a href="#events" class="link-light text-decoration-none footer-events-link" data-modal="events">EVENTOS <i class="fas fa-external-link-alt ms-1" style="font-size: 0.8em; opacity: 0.7;"></i></a></li>
+                <li><a href="#events" class="link-light text-decoration-none" data-modal="events">EVENTOS</a></li>
                 <li><a href="#live" class="link-light text-decoration-none" data-scroll>EN VIVO</a></li>
                 <li><a href="#contact" class="link-light text-decoration-none" data-scroll>CONTACTO</a></li>
               </ul>
@@ -61,7 +61,7 @@
               ]);
               if ($ev->have_posts()):
                 while ($ev->have_posts()): $ev->the_post(); ?>
-                  <li><a class="link-light text-decoration-none" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+                  <li><a class="link-light text-decoration-none footer-event-item" href="#" data-event-id="<?php echo get_the_ID(); ?>"><?php the_title(); ?></a></li>
                 <?php endwhile; wp_reset_postdata(); else: ?>
                   <li class="text-muted">Sin eventos</li>
               <?php endif; ?>
@@ -156,6 +156,21 @@
     // Incluir el modal de eventos para que esté disponible en todas las páginas
     get_template_part('template-parts/home/event-modal'); 
     ?>
+
+    <style>
+    /* Estilos para los enlaces individuales de eventos del footer */
+    .footer-event-item {
+        transition: all 0.3s ease;
+        cursor: pointer;
+        position: relative;
+    }
+    
+    .footer-event-item:hover {
+        color: var(--primary-color) !important;
+        transform: translateX(3px);
+        text-decoration: none !important;
+    }
+    </style>
 
     <?php wp_footer(); ?>
 </body>

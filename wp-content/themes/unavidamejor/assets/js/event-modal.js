@@ -28,6 +28,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Footer events link
     const footerEventsLink = document.querySelector('.footer-events-link');
     
+    // Footer event items (enlaces individuales de eventos)
+    const footerEventItems = document.querySelectorAll('.footer-event-item');
+    
     // Cache para almacenar datos precargados
     const eventDataCache = new Map();
     
@@ -40,7 +43,9 @@ document.addEventListener('DOMContentLoaded', function() {
         modalFecha: !!modalFecha,
         modalUbicacion: !!modalUbicacion,
         modalDescripcion: !!modalDescripcion,
-        eventoClickables: eventoClickables.length
+        eventoClickables: eventoClickables.length,
+        footerEventsLink: !!footerEventsLink,
+        footerEventItems: footerEventItems.length
     });
     
     // Verificar que todos los elementos necesarios existan
@@ -98,6 +103,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Función para abrir el modal
     function openEventModal(eventId) {
+        console.log('Abriendo modal para evento:', eventId);
+        
         // Prevenir scroll del body
         document.body.classList.add('modal-open');
         document.body.style.overflow = 'hidden';
@@ -112,8 +119,13 @@ document.addEventListener('DOMContentLoaded', function() {
         populateModalWithData(eventId);
     }
     
+    // Hacer la función disponible globalmente para uso desde HTML
+    window.openEventModal = openEventModal;
+    
     // Función para abrir el modal desde el footer (sin evento específico)
     function openFooterEventsModal() {
+        console.log('Abriendo modal de eventos desde footer');
+        
         // Prevenir scroll del body
         document.body.classList.add('modal-open');
         document.body.style.overflow = 'hidden';
@@ -130,32 +142,76 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Función para mostrar mensaje general de eventos
     function showGeneralEventsMessage() {
-        modalTitulo.textContent = 'Nuestros Eventos';
-        modalFecha.textContent = '';
-        modalUbicacion.textContent = '';
+        modalTitulo.textContent = '🎉 Nuestros Eventos';
+        modalFecha.textContent = 'Próximamente';
+        modalUbicacion.textContent = 'Diferentes ubicaciones';
         
         // Mostrar lista de eventos disponibles si hay datos en cache
         let eventsList = '';
         if (eventDataCache.size > 0) {
-            eventsList = '<div class="events-list mt-3"><h6>Eventos disponibles:</h6><ul class="list-unstyled">';
+            eventsList = '<div class="events-list mt-4"><h6 class="text-primary mb-3">📅 Eventos disponibles:</h6><div class="row g-3">';
             eventDataCache.forEach((eventData, eventId) => {
-                eventsList += `<li class="mb-2"><strong>${eventData.title}</strong>`;
-                if (eventData.fecha) {
-                    eventsList += ` - ${eventData.fecha}`;
-                }
-                eventsList += '</li>';
+                const eventCard = `
+                    <div class="col-12 col-md-6">
+                        <div class="card border-0 shadow-sm h-100" style="cursor: pointer;" onclick="openEventModal('${eventId}')">
+                            <div class="card-body p-3">
+                                <h6 class="card-title text-primary mb-2">${eventData.title}</h6>
+                                ${eventData.fecha ? `<p class="card-text small mb-1"><i class="fas fa-calendar-alt text-muted me-2"></i>${eventData.fecha}</p>` : ''}
+                                ${eventData.ubicacion ? `<p class="card-text small mb-0"><i class="fas fa-map-marker-alt text-muted me-2"></i>${eventData.ubicacion}</p>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                eventsList += eventCard;
             });
-            eventsList += '</ul></div>';
+            eventsList += '</div></div>';
         }
         
-        modalDescripcion.innerHTML = `<p>Descubre todos nuestros eventos y actividades. Haz clic en cualquier evento para ver más detalles.</p>${eventsList}`;
+        modalDescripcion.innerHTML = `
+            <div class="text-center mb-4">
+                <p class="lead">Descubre todos nuestros eventos y actividades especiales.</p>
+                <p class="text-muted">Haz clic en cualquier evento para ver más detalles o consulta directamente por WhatsApp.</p>
+            </div>
+            ${eventsList}
+        `;
+        
+        // Ocultar la imagen del modal
         modalImagen.style.display = 'none';
         
         // Actualizar el enlace de WhatsApp con mensaje general
         if (masInfoBtn) {
-            const whatsappText = 'Hola! Me interesa conocer más sobre los eventos y actividades.';
+            const whatsappText = 'Hola! Me interesa conocer más sobre los eventos y actividades. ¿Podrías enviarme información?';
             const whatsappUrl = `https://wa.me/5491112345678?text=${encodeURIComponent(whatsappText)}`;
             masInfoBtn.href = whatsappUrl;
+            masInfoBtn.innerHTML = '<i class="fab fa-whatsapp"></i> Consultar por WhatsApp';
+        }
+        
+        // Agregar estilos CSS para las tarjetas de eventos
+        if (!document.getElementById('footer-events-styles')) {
+            const style = document.createElement('style');
+            style.id = 'footer-events-styles';
+            style.textContent = `
+                .events-list .card {
+                    transition: all 0.3s ease;
+                    border: 1px solid #e9ecef;
+                }
+                .events-list .card:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+                    border-color: var(--primary-color);
+                }
+                .events-list .card-title {
+                    color: var(--primary-color) !important;
+                    font-weight: 600;
+                }
+                .events-list .card-text {
+                    color: #6c757d;
+                }
+                .events-list .fas {
+                    color: var(--primary-color);
+                }
+            `;
+            document.head.appendChild(style);
         }
     }
     
@@ -289,15 +345,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Event listeners para enlaces individuales de eventos del footer
+    footerEventItems.forEach(element => {
+        element.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Obtener el ID del evento desde los data attributes
+            const eventId = this.dataset.eventId;
+            
+            if (!eventId) {
+                console.error('No event ID found in footer event item');
+                return;
+            }
+            
+            console.log('Footer event item clickeado, abriendo modal para evento:', eventId);
+            // Abrir el modal con el evento específico
+            openEventModal(eventId);
+        });
+    });
+    
     // Event listener para el link de eventos del footer
     if (footerEventsLink) {
+        console.log('Footer events link encontrado, agregando event listener');
         footerEventsLink.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
             
+            console.log('Footer events link clickeado, abriendo modal');
             // Abrir el modal con el primer evento disponible o mostrar mensaje
             openFooterEventsModal();
         });
+    } else {
+        console.warn('Footer events link no encontrado');
     }
     
     // Cerrar modal con el botón de cerrar
@@ -329,4 +409,10 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
         preloadAllEventData();
     }, 1000);
+    
+    // Log final de inicialización
+    console.log('Event Modal inicializado completamente');
+    console.log('Footer events link:', footerEventsLink);
+    console.log('Modal:', modal);
+    console.log('Evento clickables encontrados:', eventoClickables.length);
 });
