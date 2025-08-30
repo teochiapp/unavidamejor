@@ -1,0 +1,158 @@
+0000.001 (0) Opened log file at time: Sat, 30 Aug 2025 19:37:31 +0000 on http://localhost/unavidamejor
+0000.004 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.25.7 WP: 6.8.2 PHP: 8.2.12 (apache2handler, Windows NT LAPTOP-0JKG0JJG 10.0 build 26100 (Windows 11) AMD64) MySQL: 10.4.32-MariaDB (max packet size=1048576) WPLANG: es_AR Server: Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 safe_mode: 0 max_execution_time: 900 memory_limit: 512M (used: 55.8M | 70M) multisite: N openssl: OpenSSL 3.0.11 19 Sep 2023 mcrypt: N LANG:  WP Proxy: disabled ZipArchive::addFile: N
+0000.006 (0) Free space on disk containing Updraft's temporary directory: 67721.8 MB
+0000.010 (0) Tasks: Backup files: 1 (schedule: daily) Backup DB:  (schedule: daily)
+0000.011 (0) Processed schedules. Combining jobs from identical schedules. Tasks now: Backup files: 1 Backup DB: 1
+0000.016 (0) Requesting semaphore lock (fd) (apparently via scheduler: last_scheduled_action_called_at=1756328996, seconds_ago=253655)
+0000.021 (0) Set semaphore last lock (fd) time to 2025-08-30 19:37:31
+0000.023 (0) Semaphore lock (fd) complete
+0000.027 (0) Backup run: resumption=0, nonce=4a2da2dc9323, file_nonce=4a2da2dc9323 begun at=1756582651 (0s ago), job type=backup
+0000.031 (0) Scheduling a resumption (1) after 300 seconds (1756582951) in case this run gets aborted
+0000.040 (0) Checking if we have a zip executable available
+0000.044 (0) Zip engine: ZipArchive (a.k.a. php-zip) is not available or is disabled (will use PclZip (much slower) if needed)
+0000.045 (0) Creation of backups of directories: beginning
+0000.050 (0) No backup of plugins: excluded by user's options
+0000.051 (0) No backup of themes: excluded by user's options
+0000.053 (0) No backup of uploads: excluded by user's options
+0000.054 (0) No backup of mu-plugins: excluded by user's options
+0000.055 (0) No backup of others: excluded by user's options
+0000.061 (0) Saving backup status to database (elements: 0)
+0000.069 (0) Beginning creation of database dump (WordPress DB)
+0000.070 (0) SQL compatibility mode is: NO_ZERO_IN_DATE,NO_ENGINE_SUBSTITUTION
+0000.074 (0) Testing potential mysqldump binary: C:\Program Files\MySQL\MySQL Workbench 8.0 CE\mysqldump.exe
+0000.227 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `uvm_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!50503 SET character_set_client = utf8mb4 */; (truncated - 1461 bytes total)
+0000.229 (0) Working binary mysqldump found: "C:\Program Files\MySQL\MySQL Workbench 8.0 CE\mysqldump.exe"
+0000.259 (0) Table uvm_options: Total expected rows (via COUNT): 319
+0000.260 (0) Table is relatively small; fetch_rows will thus be: 500 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.267 (0) Table uvm_options: Rows added in this batch (next record: 3801): 316 (uncompressed bytes in this segment=72763) in 0.02 seconds
+0000.280 (0) Table uvm_options: finishing file(s) (2, 16.2 KB)
+0000.297 (0) Table uvm_users: Total expected rows (via COUNT): 2
+0000.298 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.302 (0) Table uvm_users: Rows added in this batch (next record: 2): 2 (uncompressed bytes in this segment=1383) in 0.02 seconds
+0000.309 (0) Table uvm_users: finishing file(s) (2, 0.7 KB)
+0000.322 (0) Table uvm_usermeta: Total expected rows (via COUNT): 65
+0000.324 (0) Table is relatively small; fetch_rows will thus be: 100 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.328 (0) Table uvm_usermeta: Rows added in this batch (next record: 65): 65 (uncompressed bytes in this segment=8308) in 0.01 seconds
+0000.338 (0) Table uvm_usermeta: finishing file(s) (2, 3.3 KB)
+0000.349 (0) Table uvm_actionscheduler_actions: Total expected rows (via COUNT): 46
+0000.350 (0) Table is relatively small; fetch_rows will thus be: 50 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.355 (0) Table uvm_actionscheduler_actions: Rows added in this batch (next record: 131): 46 (uncompressed bytes in this segment=22860) in 0.01 seconds
+0000.371 (0) Table uvm_actionscheduler_actions: finishing file(s) (2, 2.2 KB)
+0000.383 (0) Table uvm_actionscheduler_claims: Total expected rows (via COUNT): 0
+0000.388 (0) Table uvm_actionscheduler_claims: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=631) in 0.01 seconds
+0000.398 (0) Table uvm_actionscheduler_claims: finishing file(s) (2, 0.4 KB)
+0000.413 (0) Table uvm_actionscheduler_groups: Total expected rows (via COUNT): 3
+0000.415 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.419 (0) Table uvm_actionscheduler_groups: Rows added in this batch (next record: 3): 3 (uncompressed bytes in this segment=707) in 0.01 seconds
+0000.429 (0) Table uvm_actionscheduler_groups: finishing file(s) (2, 0.4 KB)
+0000.443 (0) Table uvm_actionscheduler_logs: Total expected rows (via COUNT): 124
+0000.445 (0) Table is relatively small; fetch_rows will thus be: 200 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.453 (0) Table uvm_actionscheduler_logs: Rows added in this batch (next record: 124): 124 (uncompressed bytes in this segment=11687) in 0.02 seconds
+0000.460 (0) Table uvm_actionscheduler_logs: finishing file(s) (2, 1.6 KB)
+0000.481 (0) Table uvm_commentmeta: Total expected rows (via COUNT): 0
+0000.485 (0) Table uvm_commentmeta: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=640) in 0.01 seconds
+0000.496 (0) Table uvm_commentmeta: finishing file(s) (2, 0.4 KB)
+0000.517 (0) Table uvm_comments: Total expected rows (via COUNT): 1
+0000.518 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.522 (0) Table uvm_comments: Rows added in this batch (next record: 1): 1 (uncompressed bytes in this segment=1929) in 0.01 seconds
+0000.529 (0) Table uvm_comments: finishing file(s) (2, 0.8 KB)
+0000.544 (0) Table uvm_links: Total expected rows (via COUNT): 0
+0000.548 (0) Table uvm_links: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1033) in 0.01 seconds
+0000.554 (0) Table uvm_links: finishing file(s) (2, 0.5 KB)
+0000.567 (0) Table uvm_postmeta: Total expected rows (approximate): 1444
+0000.577 (0) Table uvm_postmeta: Rows added in this batch (next record: 1614): 1464 (uncompressed bytes in this segment=123706) in 0.02 seconds
+0000.586 (0) Table uvm_postmeta: finishing file(s) (2, 14.9 KB)
+0000.598 (0) Table uvm_posts: Total expected rows (via COUNT): 144
+0000.599 (0) Table is relatively small; fetch_rows will thus be: 250 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.606 (0) Table uvm_posts: Rows added in this batch (next record: 177): 144 (uncompressed bytes in this segment=103485) in 0.02 seconds
+0000.616 (0) Table uvm_posts: finishing file(s) (2, 13.9 KB)
+0000.635 (0) Table uvm_term_relationships: Total expected rows (approximate): 0
+0000.638 (0) Table uvm_term_relationships: Rows added in this batch (next record: 100000): 1 (uncompressed bytes in this segment=703) in 0.01 seconds
+0000.646 (0) Table uvm_term_relationships: finishing file(s) (2, 0.4 KB)
+0000.667 (0) Table uvm_term_taxonomy: Total expected rows (via COUNT): 1
+0000.668 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.671 (0) Table uvm_term_taxonomy: Rows added in this batch (next record: 1): 1 (uncompressed bytes in this segment=865) in 0.01 seconds
+0000.680 (0) Table uvm_term_taxonomy: finishing file(s) (2, 0.4 KB)
+0000.701 (0) Table uvm_termmeta: Total expected rows (via COUNT): 0
+0000.704 (0) Table uvm_termmeta: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=613) in 0.01 seconds
+0000.712 (0) Table uvm_termmeta: finishing file(s) (2, 0.4 KB)
+0000.729 (0) Table uvm_terms: Total expected rows (via COUNT): 1
+0000.731 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.734 (0) Table uvm_terms: Rows added in this batch (next record: 1): 1 (uncompressed bytes in this segment=680) in 0.01 seconds
+0000.741 (0) Table uvm_terms: finishing file(s) (2, 0.4 KB)
+0000.758 (0) Table uvm_wpfm_backup: Total expected rows (via COUNT): 0
+0000.761 (0) Table uvm_wpfm_backup: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=484) in 0.01 seconds
+0000.768 (0) Table uvm_wpfm_backup: finishing file(s) (2, 0.3 KB)
+0000.786 (0) Table uvm_wpforms_logs: Total expected rows (via COUNT): 3
+0000.788 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.791 (0) Table uvm_wpforms_logs: Rows added in this batch (next record: 3): 3 (uncompressed bytes in this segment=1035) in 0.01 seconds
+0000.799 (0) Table uvm_wpforms_logs: finishing file(s) (2, 0.5 KB)
+0000.819 (0) Table uvm_wpforms_payment_meta: Total expected rows (via COUNT): 0
+0000.821 (0) Table uvm_wpforms_payment_meta: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=696) in 0.01 seconds
+0000.831 (0) Table uvm_wpforms_payment_meta: finishing file(s) (2, 0.4 KB)
+0000.851 (0) Table uvm_wpforms_payments: Total expected rows (via COUNT): 0
+0000.854 (0) Table uvm_wpforms_payments: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1656) in 0.01 seconds
+0000.861 (0) Table uvm_wpforms_payments: finishing file(s) (2, 0.6 KB)
+0000.881 (0) Table uvm_wpforms_tasks_meta: Total expected rows (via COUNT): 5
+0000.882 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.885 (0) Table uvm_wpforms_tasks_meta: Rows added in this batch (next record: 6): 5 (uncompressed bytes in this segment=986) in 0.01 seconds
+0000.894 (0) Table uvm_wpforms_tasks_meta: finishing file(s) (2, 0.5 KB)
+0000.895 (0) PHP event: code E_WARNING: filemtime(): stat failed for C:\xampp\htdocs\unavidamejor/wp-content/updraft/backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db.gz (line 1923, C:\xampp\htdocs\unavidamejor\wp-content\plugins\updraftplus\backup.php)
+0000.899 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_options.table.tmpr3802.gz (1/21/fopen): adding to final database dump
+0000.901 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_options.table.gz (2/21/fopen): adding to final database dump
+0000.903 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_users.table.tmpr3.gz (3/21/fopen): adding to final database dump
+0000.905 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_users.table.gz (4/21/fopen): adding to final database dump
+0000.906 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_usermeta.table.tmpr66.gz (5/21/fopen): adding to final database dump
+0000.908 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_usermeta.table.gz (6/21/fopen): adding to final database dump
+0000.909 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_actionscheduler_actions.table.tmpr132.gz (7/21/fopen): adding to final database dump
+0000.910 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_actionscheduler_actions.table.gz (8/21/fopen): adding to final database dump
+0000.912 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_actionscheduler_claims.table.tmpr0.gz (9/21/fopen): adding to final database dump
+0000.914 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_actionscheduler_claims.table.gz (10/21/fopen): adding to final database dump
+0000.915 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_actionscheduler_groups.table.tmpr4.gz (11/21/fopen): adding to final database dump
+0000.916 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_actionscheduler_groups.table.gz (12/21/fopen): adding to final database dump
+0000.917 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_actionscheduler_logs.table.tmpr125.gz (13/21/fopen): adding to final database dump
+0000.919 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_actionscheduler_logs.table.gz (14/21/fopen): adding to final database dump
+0000.921 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_commentmeta.table.tmpr0.gz (15/21/fopen): adding to final database dump
+0000.922 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_commentmeta.table.gz (16/21/fopen): adding to final database dump
+0000.923 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_comments.table.tmpr2.gz (17/21/fopen): adding to final database dump
+0000.925 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_comments.table.gz (18/21/fopen): adding to final database dump
+0000.926 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_links.table.tmpr0.gz (19/21/fopen): adding to final database dump
+0000.928 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_links.table.gz (20/21/fopen): adding to final database dump
+0000.929 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_postmeta.table.tmpr1615.gz (21/21/fopen): adding to final database dump
+0000.931 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_postmeta.table.gz (22/21/fopen): adding to final database dump
+0000.933 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_posts.table.tmpr178.gz (23/21/fopen): adding to final database dump
+0000.935 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_posts.table.gz (24/21/fopen): adding to final database dump
+0000.936 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_term_relationships.table.tmpr100001.gz (25/21/fopen): adding to final database dump
+0000.937 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_term_relationships.table.gz (26/21/fopen): adding to final database dump
+0000.938 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_term_taxonomy.table.tmpr2.gz (27/21/fopen): adding to final database dump
+0000.940 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_term_taxonomy.table.gz (28/21/fopen): adding to final database dump
+0000.941 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_termmeta.table.tmpr0.gz (29/21/fopen): adding to final database dump
+0000.942 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_termmeta.table.gz (30/21/fopen): adding to final database dump
+0000.944 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_terms.table.tmpr2.gz (31/21/fopen): adding to final database dump
+0000.945 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_terms.table.gz (32/21/fopen): adding to final database dump
+0000.946 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_wpfm_backup.table.tmpr0.gz (33/21/fopen): adding to final database dump
+0000.948 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_wpfm_backup.table.gz (34/21/fopen): adding to final database dump
+0000.949 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_wpforms_logs.table.tmpr4.gz (35/21/fopen): adding to final database dump
+0000.951 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_wpforms_logs.table.gz (36/21/fopen): adding to final database dump
+0000.952 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_wpforms_payment_meta.table.tmpr0.gz (37/21/fopen): adding to final database dump
+0000.953 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_wpforms_payment_meta.table.gz (38/21/fopen): adding to final database dump
+0000.955 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_wpforms_payments.table.tmpr0.gz (39/21/fopen): adding to final database dump
+0000.956 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_wpforms_payments.table.gz (40/21/fopen): adding to final database dump
+0000.957 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_wpforms_tasks_meta.table.tmpr7.gz (41/21/fopen): adding to final database dump
+0000.959 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db-table-uvm_wpforms_tasks_meta.table.gz (42/21/fopen): adding to final database dump
+0000.999 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db.gz: finished writing out complete database file (59.3 KB)
+0001.014 (0) Total database tables backed up: 21 (backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db.gz, size: 60816, sha1: 10691ecfca5227acd64484dd074f8a5be75745cb, sha256: 0a5c8cdca74b87a185777c2ea5899d903c0db1d0d5563c8f5dbe140abf955bc3)
+0001.022 (0) backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db.gz: db: This file has not yet been successfully uploaded: will queue
+0001.023 (0) Saving backup history. Total backup size: 59.4 KB
+0001.026 (0) Requesting upload of the files that have not yet been successfully uploaded (1)
+0001.030 (0) Cloud backup selection (1/1): none with instance (1/1) (last)
+0001.031 (0) No remote despatch: user chose no remote backup service
+0001.032 (0) Recording as successfully uploaded: backup_2025-08-30-1637_Una_Vida_Mejor_4a2da2dc9323-db.gz
+0001.035 (0) Prune old backups from local store: nothing to do, since the user disabled local deletion and we are using local backups
+0001.036 (0) Resume backup (4a2da2dc9323, 0): finish run
+0001.040 (0) Decremented the semaphore (fd) by 1
+0001.042 (0) Semaphore (fd) unlocked
+0001.043 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0001.047 (0) The backup succeeded and is now complete
+0001.049 (0) No email will/can be sent - the user has not configured an email address.
+0001.050 (0) El respaldo se completó exitosamente.

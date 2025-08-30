@@ -25,12 +25,12 @@
 
     <nav class="main-nav">
       <ul>
-        <li><a href="#about" class="nav-link" data-scroll>VISIÓN</a></li>
-        <li><a href="#about" class="nav-link" data-scroll>EN QUE CREEMOS</a></li>
-        <li><a href="#about" class="nav-link" data-scroll>QUIENES SOMOS</a></li>
-        <li><a href="#events" class="nav-link" data-scroll>EVENTOS</a></li>
-        <li><a href="#live" class="nav-link" data-scroll>EN VIVO</a></li>
-        <li><a href="#contact" class="nav-link" data-scroll>CONTACTO</a></li>
+        <li><a href="<?php echo esc_url(home_url('/vision')); ?>" class="nav-link" data-scroll>VISIÓN</a></li>
+        <li><a href="<?php echo esc_url(home_url('/en-que-creemos')); ?>" class="nav-link" data-scroll>EN QUE CREEMOS</a></li>
+        <li><a href="<?php echo esc_url(home_url('/')); ?>/#about" class="nav-link" data-scroll>QUIENES SOMOS</a></li>
+        <li><a href="<?php echo esc_url(home_url('/')); ?>/#events" class="nav-link" data-scroll>EVENTOS</a></li>
+        <li><a href="<?php echo esc_url(home_url('/')); ?>/#live" class="nav-link" data-scroll>EN VIVO</a></li>
+        <li><a href="<?php echo esc_url(home_url('/')); ?>/#contact" class="nav-link" data-scroll>CONTACTO</a></li>
       </ul>
     </nav>
 
