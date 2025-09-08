@@ -1200,10 +1200,12 @@
   background: #555;
 }
 
+@media (max-width: 425px) {
+  .visor-navigation button {
+    font-size: 0.8rem;
+  }
+  }
 @media (max-width: 355px) {
-.visor-navigation button {
-  font-size: 0.8rem;
-}
 
 .belief-text {
     font-size: 0.85rem;
@@ -1218,4 +1220,11 @@
     line-height: 1.6;
 }
 
+}
+
+@media (max-width: 355px) {
+
+.visor-navigation button{
+    font-size: 0.55rem;
+}
 }
