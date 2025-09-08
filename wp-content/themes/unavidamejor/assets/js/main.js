@@ -9,6 +9,27 @@ document.addEventListener('DOMContentLoaded', () => {
       duration: 700,
       easing: 'ease-out-cubic'
     });
+    console.log('AOS inicializado correctamente');
+  } else {
+    console.warn('AOS no está disponible');
+    // Fallback: mostrar elementos de misión después de 1 segundo
+    setTimeout(() => {
+      const misionItems = document.querySelectorAll('.mision-item');
+      misionItems.forEach(item => {
+        item.classList.add('visible');
+      });
+    }, 1000);
+  }
+
+  // Debug: verificar elementos de misión
+  const misionItems = document.querySelectorAll('.mision-item');
+  if (misionItems.length > 0) {
+    console.log(`Encontrados ${misionItems.length} elementos de misión`);
+    misionItems.forEach((item, index) => {
+      console.log(`Elemento ${index + 1}:`, item);
+    });
+  } else {
+    console.warn('No se encontraron elementos de misión');
   }
 
   // Función para ajustar video hero a contenedor sin bordes negros
@@ -38,16 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
   coverIframeToContainer();
   window.addEventListener('resize', coverIframeToContainer);
 
-  // Header sticky on scroll
+  // Header es ahora fijo - aplicar sombra siempre
   const headerEl = document.querySelector('.site-header');
   if (headerEl) {
-    const stickyToggle = () => {
-      const y = window.pageYOffset || document.documentElement.scrollTop;
-      if (y > 10) headerEl.classList.add('is-sticky');
-      else headerEl.classList.remove('is-sticky');
-    };
-    stickyToggle();
-    window.addEventListener('scroll', stickyToggle, { passive: true });
+    headerEl.classList.add('is-sticky'); // Aplicar sombra permanentemente
   }
 
   // 📱 JS para toggle del menú mobile
@@ -101,9 +116,17 @@ if (toggle && menu && closeBtn) {
         goTo(href);
       } else {
         // si no estamos en home, redirigir a home + hash
-        const home = document.querySelector('link[rel="home"]')?.getAttribute('href') || '/';
-        window.location.href = home.replace(/\/$/, '') + '/' + href.replace(/^#/, '');
+        const homeUrl = window.location.origin + '/';
+        const targetSection = href.replace('#', '');
+        window.location.href = homeUrl + '#' + targetSection;
       }
     });
   });
+
+  // Manejar scroll automático cuando llegamos a home con hash
+  if (isFront && window.location.hash) {
+    setTimeout(() => {
+      goTo(window.location.hash);
+    }, 100);
+  }
 });

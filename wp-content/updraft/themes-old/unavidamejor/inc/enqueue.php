@@ -26,11 +26,21 @@ wp_enqueue_style(
 );
     // Google Fonts: Domine + Lato (completas)
     wp_enqueue_style(
-        'unavidamejor-fonts',
+        'unavidamejor-fonts',   
         'https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap',
         [],
         null
     );
+    
+    // Fuentes específicas para la página "En que creemos"
+    if (is_page('en-que-creemos')) {
+        wp_enqueue_style(
+            'unavidamejor-beliefs-fonts',
+            'https://fonts.googleapis.com/css2?family=Slabo+27px&family=Story+Script:wght@400&family=DM+Serif+Text:ital@0;1&display=swap',
+            [],
+            null
+        );
+    }
     // AOS CSS
     wp_enqueue_style(
         'aos-css',
@@ -61,7 +71,7 @@ wp_enqueue_style(
         ['bootstrap-css', 'unavidamejor-style', 'unavidamejor-main'],
         UNAVIDAMEJOR_VERSION
     );
-
+    
     // Bootstrap JS (bundle con Popper)
     wp_enqueue_script(
         'bootstrap-js',
@@ -89,9 +99,42 @@ wp_enqueue_style(
         true
     );
 
+    // JS del modal de eventos
+    wp_enqueue_script(
+        'unavidamejor-event-modal',
+        $theme_base_url . '/assets/js/event-modal.js',
+        ['bootstrap-js', 'unavidamejor-main'],
+        UNAVIDAMEJOR_VERSION,
+        true
+    );
+    
+    // Localizar script con variables AJAX
+    wp_localize_script('unavidamejor-event-modal', 'unavidamejor_ajax', array(
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'nonce' => wp_create_nonce('unavidamejor_nonce')
+    ));
+
     // Hilo de comentarios en singular
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
+    }
+    
+    // Assets específicos para la página "En que creemos"
+    if (is_page('en-que-creemos')) {
+        wp_enqueue_style(
+            'unavidamejor-beliefs-page',
+            $theme_base_url . '/assets/css/beliefs-page.css',
+            ['bootstrap-css', 'unavidamejor-style'],
+            UNAVIDAMEJOR_VERSION
+        );
+        
+        wp_enqueue_script(
+            'unavidamejor-beliefs-page',
+            $theme_base_url . '/assets/js/beliefs-page.js',
+            ['bootstrap-js'],
+            UNAVIDAMEJOR_VERSION,
+            true
+        );
     }
 }
 add_action('wp_enqueue_scripts', 'unavidamejor_enqueue_assets');

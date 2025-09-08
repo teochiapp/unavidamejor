@@ -41,17 +41,3 @@ function unavidamejor_set_content_width(): void {
     $GLOBALS['content_width'] = apply_filters('unavidamejor_content_width', 800);
 }
 add_action('after_setup_theme', 'unavidamejor_set_content_width', 0);
-
-// Opciones ACF: página de opciones (si ACF Pro está activo)
-if (function_exists('acf_add_options_page')) {
-    acf_add_options_page([
-        'page_title' => __('Opciones del Home', 'unavidamejor'),
-        'menu_title' => __('Home', 'unavidamejor'),
-        'menu_slug'  => 'unavidamejor-home-options',
-        'capability' => 'edit_posts',
-        'redirect'   => false,
-        'position'   => 61,
-        'icon_url'   => 'dashicons-welcome-view-site',
-    ]);
-}
-

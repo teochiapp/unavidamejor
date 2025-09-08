@@ -1,0 +1,41 @@
+﻿# OS / IDE
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Dependencies / builds
+node_modules/
+vendor/
+*.log
+*.sql
+
+# WordPress common
+wp-content/cache/
+wp-content/upgrade/
+wp-content/uploads/
+wp-content/ai1wm-backups/
+wp-content/backups/
+wp-content/backup-*/
+wp-content/advanced-cache.php
+
+# Updraft backups
+wp-content/updraft/*.zip
+wp-content/updraft/*.gz
+wp-content/updraft/*.log
+wp-content/updraft/log.*.txt
+wp-content/updraft/backup_*
+wp-content/updraft/uploads*/
+wp-content/updraft/themes-old/
+
+# File Manager plugin backups
+wp-content/uploads/wp-file-manager-pro/fm_backup/
+
+# Translations generated files
+wp-content/languages/plugins/
+wp-content/languages/themes/*.l10n.php
+
+# Misc
+uvm-master.zip

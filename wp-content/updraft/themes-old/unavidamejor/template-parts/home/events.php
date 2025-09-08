@@ -37,32 +37,41 @@
           $imagen = get_field('imagen'); // URL string
           $fecha = get_field('fecha');
           $icono = get_field('icono'); // URL string
+          $ubicacion = get_field('ubicacion'); // Campo de ubicación
       ?>
           <div class="col-12 col-sm-6 col-lg-4">
             <div class="evento-card h-100 shadow-sm">
               <div class="evento-img-container rounded-top overflow-hidden">
                 <?php if ( has_post_thumbnail() ) : ?>
                   <img 
-                    class="evento-img w-100" 
+                    class="evento-img w-100 evento-clickable" 
                     src="<?php the_post_thumbnail_url('medium'); ?>" 
-                    alt="<?php the_title_attribute(); ?>">
+                    alt="<?php the_title_attribute(); ?>"
+                    data-event-id="<?php echo get_the_ID(); ?>">
                 <?php elseif ( $imagen ) : ?>
-                  <img class="evento-img w-100" src="<?php echo esc_url($imagen); ?>" alt="<?php the_title_attribute(); ?>">
+                  <img class="evento-img w-100 evento-clickable" 
+                       src="<?php echo esc_url($imagen); ?>" 
+                       alt="<?php the_title_attribute(); ?>"
+                       data-event-id="<?php echo get_the_ID(); ?>">
                 <?php else : ?>
-                  <img class="evento-img w-100" src="" alt="Sin imagen">
+                  <img class="evento-img w-100 evento-clickable" 
+                       src="" 
+                       alt="Sin imagen"
+                       data-event-id="<?php echo get_the_ID(); ?>">
                 <?php endif; ?>
               </div>
 
               <div class="evento-content bg-white rounded-bottom">
                 <div class="text-content">
-                    <h3 class="evento-title heading-font h6 mb-1 fw-bold"><?php the_title(); ?></h3>
+                    <h3 class="evento-title heading-font h6 mb-1 fw-bold evento-clickable" 
+                        data-event-id="<?php echo get_the_ID(); ?>"><?php the_title(); ?></h3>
                 <?php if ( $fecha ) : ?>
                   <p class="evento-fecha heading-font mb-2 small"><?php echo esc_html( $fecha ); ?></p>
                 <?php endif; ?>
                 <?php if ( $descripcion ) : ?>
-                  <p class="evento-desc mb-0 small"><?php echo wp_trim_words( $descripcion, 15 ); ?></p>
+                  <div class="evento-desc mb-0 small"><?php echo wp_trim_words( $descripcion, 15 ); ?></div>
                 <?php else : ?>
-                  <p class="evento-desc mb-0 small"><?php echo wp_trim_words( get_the_content(), 15 ); ?></p>
+                  <div class="evento-desc mb-0 small"><?php echo wp_trim_words( get_the_content(), 15 ); ?></div>
                 <?php endif; ?>
                 </div>
 
@@ -100,4 +109,27 @@
     <?php endif; ?>
 
   </div>
+
 </section>
+
+<style>
+.evento-clickable {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.evento-clickable:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+/* Padding específico solo para la fila de eventos principal */
+.eventos-destacados .row:not(.modal .row) {
+  padding: 0;
+}
+
+/* Asegurar que el modal mantenga su padding interno */
+#eventoModal .row {
+  padding: inherit;
+}
+</style>

@@ -74,9 +74,9 @@
   }
 }
 
-@media (max-width: 992px) and (min-width: 768px) {
+@media (max-width: 1200px) and (min-width: 992px) {
 .header-container > nav > ul {
-    gap: 15px;
+    gap: 20px;
 }
 }
 
@@ -110,7 +110,7 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .main-nav,
   .header-button {
     display: none;
@@ -163,4 +163,58 @@ padding: 2rem !important;
 .eventos-destacados .row {
   padding: 30px;
 }
+}
+
+
+@media (min-width: 768px) {
+  .end-text-align {
+    text-align: end;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .gestion-row {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .gestion-image {
+    width: 100%;
+  }
+
+  .gestion-text p {
+    font-size: 1.1rem;
+  }
+
+  .vida-section {
+    padding-top: 0 !important;
+  }
+  .col-cultura {
+    padding: 0 70px;
+  }
+}
+
+
+
+/* Tablets (de 4 a 2 columnas, imágenes un poco más bajas) */
+@media (max-width: 1024px) {
+  .grid-left {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-item img {
+    height: 180px;
+  }
+}
+
+/* Mobile (1 columna, imágenes adaptables) */
+@media (max-width: 600px) {
+  .grid-left {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-item img {
+    height: 150px; /* Más compactas en móvil */
+  }
 }

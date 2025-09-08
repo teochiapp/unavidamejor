@@ -8,6 +8,10 @@
     <?php get_template_part('template-parts/home/schedule'); ?>
 </section>
 
+<section id="kids"  data-aos="fade-up" data-aos-delay="100">
+    <?php get_template_part('template-parts/home/kids'); ?>
+</section>
+
 <section id="about" data-aos="fade-up" data-aos-delay="200">
     <?php get_template_part('template-parts/home/about'); ?>
 </section>
@@ -23,6 +27,9 @@
 <section id="contact" data-aos="fade-up" data-aos-delay="800">
     <?php get_template_part('template-parts/home/contact'); ?>
 </section>
+
+<!-- Modal del Evento - Posicionado a nivel de página -->
+<?php get_template_part('template-parts/home/event-modal'); ?>
 
 <?php get_footer(); ?>
     
