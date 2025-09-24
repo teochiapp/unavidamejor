@@ -25,7 +25,7 @@
       <?php
       $args = array(
         'post_type'      => 'evento', // Slug del CPT
-        'posts_per_page' => 6,        // Número máximo de eventos a mostrar
+        'posts_per_page' => -1,        // Número máximo de eventos a mostrar
         'orderby'        => 'date',
         'order'          => 'DESC',
       );

@@ -70,7 +70,6 @@
         <p class="belief-text"><?php echo $page['text']; ?></p>
       </div>
       <!-- Número de página -->
-      <div class="visor-page-number">Página <?php echo $index+1; ?></div>
       <!-- Navegación -->
       <div class="visor-navigation">
         <button class="nav-prev">← Anterior</button>
@@ -91,45 +90,98 @@ document.addEventListener("DOMContentLoaded", () => {
     pages.forEach((page, i) => {
       if (i === index) {
         page.classList.add('active');
+        page.style.display = 'block';
       } else {
         page.classList.remove('active');
+        page.style.display = 'none';
       }
     });
 
-    // Deshabilitar botones si es primera o última página
-    const prevButton = pages[index].querySelector(".nav-prev");
-    const nextButton = pages[index].querySelector(".nav-next");
+    // Actualizar botones de navegación en todas las páginas
+    pages.forEach((page, i) => {
+      const prevButton = page.querySelector(".nav-prev");
+      const nextButton = page.querySelector(".nav-next");
 
-    if (prevButton) prevButton.disabled = index === 0;
-    if (nextButton) nextButton.disabled = index === totalPages - 1;
+      if (prevButton) {
+        prevButton.disabled = index === 0;
+        prevButton.style.opacity = index === 0 ? '0.5' : '1';
+      }
+      if (nextButton) {
+        nextButton.disabled = index === totalPages - 1;
+        nextButton.style.opacity = index === totalPages - 1 ? '0.5' : '1';
+      }
+    });
+  }
+
+  // Función para navegar a página anterior
+  function goToPrevious() {
+    if (currentPage > 0) {
+      currentPage--;
+      showPage(currentPage);
+    }
+  }
+
+  // Función para navegar a página siguiente
+  function goToNext() {
+    if (currentPage < totalPages - 1) {
+      currentPage++;
+      showPage(currentPage);
+    }
   }
 
   // Inicializar visor mostrando la primera página
   showPage(currentPage);
 
-  // Event listeners para navegación
-  pages.forEach((page, index) => {
-    const prevButton = page.querySelector(".nav-prev");
-    const nextButton = page.querySelector(".nav-next");
-
-    if (prevButton) {
-      prevButton.addEventListener("click", () => {
-        if (currentPage > 0) {
-          currentPage--;
-          showPage(currentPage);
-        }
-      });
-    }
-
-    if (nextButton) {
-      nextButton.addEventListener("click", () => {
-        if (currentPage < totalPages - 1) {
-          currentPage++;
-          showPage(currentPage);
-        }
-      });
+  // Event listeners para navegación - usar delegación de eventos
+  document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("nav-prev")) {
+      e.preventDefault();
+      e.stopPropagation();
+      goToPrevious();
+    } else if (e.target.classList.contains("nav-next")) {
+      e.preventDefault();
+      e.stopPropagation();
+      goToNext();
     }
   });
+
+  // Prevenir eventos de touch en botones deshabilitados
+  document.addEventListener("touchstart", (e) => {
+    if (e.target.disabled) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  }, { passive: false });
+
+  // Agregar indicadores visuales para mejor UX
+  const visor = document.querySelector('.visor');
+  if (visor) {
+    // Crear indicador de página actual
+    const pageIndicator = document.createElement('div');
+    pageIndicator.className = 'visor-page-indicator';
+    pageIndicator.style.cssText = `
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: var(--primary-color);
+      font-weight: 500;
+    `;
+    visor.appendChild(pageIndicator);
+
+    // Función para actualizar indicador
+    function updatePageIndicator() {
+      pageIndicator.textContent = `Página ${currentPage + 1} de ${totalPages}`;
+    }
+
+    // Actualizar indicador cuando cambie la página
+    const originalShowPage = showPage;
+    showPage = function(index) {
+      originalShowPage(index);
+      updatePageIndicator();
+    };
+
+    updatePageIndicator();
+  }
 });
 </script>
 
